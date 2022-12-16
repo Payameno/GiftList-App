@@ -17,7 +17,8 @@ const index = niceList.findIndex(n => n === name);
 const proof = merkleTree.getProof(index);
 
   const { data: gift } = await axios.post(`${serverUrl}/gift` ,{
-    clientProof: proof,
+    name: name,
+    proof: proof,
   })
   .catch(function (error) {
     console.log(error);

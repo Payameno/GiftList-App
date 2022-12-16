@@ -6,22 +6,22 @@ const port = 1225;
 const app = express();
 app.use(express.json());
 
-// TODO: hardcode a merkle root here representing the whole nice list
-// paste the hex string in here, without the 0x prefix
-const MERKLE_ROOT = '';
+// Hardcoded merkle root here representing the whole "nice list"
+// A string in here, without the 0x prefix
+const MERKLE_ROOT = '65ec8fa38c163c4cb9ba474f46d3281c59317a375fc16ca46ec3232f88d3f77c';
 
 app.post('/gift', (req, res) => {
-  // grab the parameters from the front-end here
+  
+  //Merkle Tree proof from front-end
   const body = req.body;
+  proof = body.proof;
+  clientName = body.name;
+  root = MERKLE_ROOT;
 
-  // TODO: prove that a name is in the list 
-  const isInTheList = false;
-  if(isInTheList) {
-    res.send("You got a toy robot!");
-  }
-  else {
-    res.send("You are not on the list :(");
-  }
+  console.log( verifyProof(proof, clientName, root) )
+
+  // // TODO: prove that a name is in the list 
+
 });
 
 app.listen(port, () => {
