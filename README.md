@@ -1,5 +1,7 @@
 # Gift List
 
+This is an implementation of Markle trees in the ethereum blockchain, the clinet side works as a prover by providing proof that the name is included in the list, while the server verifies the information and grants gifts.
+
 To get started with the repository, clone it and then run `npm install` in the top-level directory to install the depedencies.
 
 There are three folders in this repository:
