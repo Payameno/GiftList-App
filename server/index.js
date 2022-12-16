@@ -18,10 +18,14 @@ app.post('/gift', (req, res) => {
   clientName = body.name;
   root = MERKLE_ROOT;
 
-  console.log( verifyProof(proof, clientName, root) )
-
-  // // TODO: prove that a name is in the list 
-
+  // // Proving that a name is in the list 
+  const isInTheList = verifyProof(proof, clientName, root);
+  if(isInTheList) {
+    res.send(`${clientName}, you got a toy robot!`);
+  }
+  else {
+    res.send("You are not on the list :(");
+  }
 });
 
 app.listen(port, () => {
